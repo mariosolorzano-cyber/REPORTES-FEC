@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe de Aprobaciones — Marzo & Abril 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #f4f6f9; color: #1a1a2e; min-height: 100vh; }
+
+  .header { background: linear-gradient(135deg, #1F4E79 0%, #2E75B6 100%); color: white; padding: 40px 48px; }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+  .header p { font-size: 14px; opacity: 0.8; }
+  .header .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 14px; font-size: 12px; margin-top: 12px; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+
+  .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 36px; }
+  .metric { background: white; border-radius: 12px; padding: 20px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-left: 4px solid #2E75B6; }
+  .metric-label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .metric-value { font-size: 32px; font-weight: 700; color: #1F4E79; }
+  .metric-sub { font-size: 12px; color: #aaa; margin-top: 4px; }
+  .metric.coral { border-left-color: #d85a30; }
+  .metric.coral .metric-value { color: #d85a30; }
+  .metric.teal { border-left-color: #1d9e75; }
+  .metric.teal .metric-value { color: #1d9e75; }
+  .metric.purple { border-left-color: #534ab7; }
+  .metric.purple .metric-value { color: #534ab7; }
+
+  .card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); margin-bottom: 24px; }
+  .card-title { font-size: 13px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 20px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+
+  .chart-wrap { position: relative; width: 100%; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 14px; font-size: 13px; color: #666; }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+  .insight-box { background: #EBF3FB; border-left: 4px solid #2E75B6; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 16px; font-size: 13px; color: #1F4E79; line-height: 1.6; }
+  .insight-box strong { font-weight: 600; }
+
+  .footer { text-align: center; padding: 32px; font-size: 12px; color: #bbb; }
+
+  @media (max-width: 700px) {
+    .metric-grid { grid-template-columns: 1fr 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .header { padding: 28px 20px; }
+    .container { padding: 20px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Informe de Aprobaciones</h1>
+  <p>Operador: <strong>MARIO ALESSANDRO SOLORZANO</strong></p>
+  <div class="badge">Marzo & Abril 2026 &nbsp;·&nbsp; Generado el 08/04/2026</div>
+</div>
+
+<div class="container">
+
+  <!-- FEC + Citas -->
+  <!-- KPIs fila 1 -->
+  <div class="metric-grid" style="margin-bottom: 16px;">
+    <div class="metric" style="border-left-color: #1d9e75;">
+      <div class="metric-label">Certificados FEC totales</div>
+      <div class="metric-value" style="color:#1d9e75;">500</div>
+      <div class="metric-sub">Asignados al operador</div>
+    </div>
+    <div class="metric" style="border-left-color: #2E75B6;">
+      <div class="metric-label">Certificados FEC disponibles</div>
+      <div class="metric-value" style="color:#2E75B6;">344</div>
+      <div class="metric-sub">500 totales − 156 emitidos</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Total aprobaciones</div>
+      <div class="metric-value">156</div>
+      <div class="metric-sub">Marzo + Abril 2026</div>
+    </div>
+    <div class="metric" style="border-left-color: #534ab7;">
+      <div class="metric-label">Citas programadas</div>
+      <div class="metric-value" style="color:#534ab7;">192</div>
+      <div class="metric-sub">Hasta el jueves 30 de Abril</div>
+    </div>
+  </div>
+
+  <!-- KPIs fila 2 -->
+  <div class="metric-grid">
+    <div class="metric coral">
+      <div class="metric-label">Marzo</div>
+      <div class="metric-value">128</div>
+      <div class="metric-sub">82% del total · 9 días</div>
+    </div>
+    <div class="metric teal">
+      <div class="metric-label">Abril</div>
+      <div class="metric-value">28</div>
+      <div class="metric-sub">18% del total · 2 días</div>
+    </div>
+    <div class="metric purple">
+      <div class="metric-label">Promedio diario</div>
+      <div class="metric-value">14.2</div>
+      <div class="metric-sub">En días activos</div>
+    </div>
+    <div class="metric" style="border-left-color:#888; opacity:0; pointer-events:none;"></div>
+  </div>
+
+  <!-- Aprobaciones por fecha -->
+  <div class="card">
+    <div class="card-title">Aprobaciones por fecha</div>
+    <div class="legend">
+      <span><span class="legend-dot" style="background:#2E75B6;"></span>Marzo 2026</span>
+      <span><span class="legend-dot" style="background:#d85a30;"></span>Abril 2026</span>
+    </div>
+    <div class="chart-wrap" style="height: 240px;">
+      <canvas id="chartFecha" role="img" aria-label="Aprobaciones por fecha de Marzo y Abril">Valores: Mar 17:14, Mar 18:7, Mar 19:10, Mar 20:13, Mar 23:21, Mar 24:20, Mar 25:9, Mar 26:18, Mar 27:16, Abr 7:12, Abr 8:16</canvas>
+    </div>
+    <div class="insight-box">
+      <strong>Pico máximo:</strong> 23 de Marzo con 21 aprobaciones. La semana del 23–27 de Marzo concentra 84 aprobaciones, el 66% de toda la actividad de Marzo.
+    </div>
+  </div>
+
+  <!-- Género + Día semana -->
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Distribución por género</div>
+      <div class="legend">
+        <span><span class="legend-dot" style="background:#2E75B6;"></span>Masculino — 131 (84%)</span>
+        <span><span class="legend-dot" style="background:#d85a30;"></span>Femenino — 25 (16%)</span>
+      </div>
+      <div class="chart-wrap" style="height: 220px;">
+        <canvas id="chartGenero" role="img" aria-label="Distribución por género">Masculino 131 (84%), Femenino 25 (16%)</canvas>
+      </div>
+      <div class="insight-box">
+        Por cada mujer aprobada hay <strong>5.2 hombres</strong>. La relación es consistente en ambos meses.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Aprobaciones por día de la semana</div>
+      <div class="chart-wrap" style="height: 220px;">
+        <canvas id="chartDow" role="img" aria-label="Aprobaciones por día de semana">Lunes 21, Martes 46, Miércoles 32, Jueves 28, Viernes 29</canvas>
+      </div>
+      <div class="insight-box">
+        El <strong>martes</strong> es el día más activo con 46 aprobaciones (29% del total). No hay actividad registrada en fin de semana.
+      </div>
+    </div>
+  </div>
+
+  <!-- Actividad por hora -->
+  <div class="card">
+    <div class="card-title">Actividad por hora del día (hora local El Salvador)</div>
+    <div class="chart-wrap" style="height: 210px;">
+      <canvas id="chartHora" role="img" aria-label="Aprobaciones por hora local El Salvador">8am:6, 9am:20, 10am:21, 11am:22, 12pm:16, 1pm:11, 2pm:17, 3pm:23, 4pm:20</canvas>
+    </div>
+    <div class="insight-box">
+      Toda la actividad ocurre dentro del horario de atención de <strong>8:30 am a 4:30 pm</strong>. El pico más alto es a las <strong>3:00 pm</strong> con 23 aprobaciones, seguido de las 11:00 am con 22.
+    </div>
+  </div>
+
+  <!-- Comparación meses -->
+  <div class="card">
+    <div class="card-title">Comparación Marzo vs Abril</div>
+    <div class="legend">
+      <span><span class="legend-dot" style="background:#2E75B6;"></span>Marzo</span>
+      <span><span class="legend-dot" style="background:#d85a30;"></span>Abril</span>
+    </div>
+    <div class="chart-wrap" style="height: 130px;">
+      <canvas id="chartMes" role="img" aria-label="Comparación entre meses. Marzo 128, Abril 28">Marzo: 128, Abril: 28</canvas>
+    </div>
+    <div class="insight-box">
+      Nota: Abril solo incluye 2 días de datos (7 y 8). El promedio diario de Abril (<strong>14 por día</strong>) es equivalente al de Marzo (<strong>14.2 por día</strong>), lo que sugiere un ritmo de trabajo estable.
+    </div>
+  </div>
+
+</div>
+
+  <!-- Proyección -->
+  <div class="card">
+    <div class="card-title">Proyección de certificados a emitir</div>
+
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin-bottom:24px;">
+      <div style="background:#f0f7ff; border-radius:10px; padding:16px 18px; border-top: 4px solid #888780;">
+        <div style="font-size:12px; color:#888; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">Conservadora</div>
+        <div style="font-size:28px; font-weight:700; color:#5f5e5a;">7 / día</div>
+        <div style="font-size:13px; color:#888; margin-top:6px;">Resto de Abril <strong style="color:#5f5e5a;">112</strong></div>
+        <div style="font-size:13px; color:#888;">Mayo completo <strong style="color:#5f5e5a;">147</strong></div>
+        <div style="font-size:11px; color:#aaa; margin-top:8px;">Basado en el día mínimo histórico</div>
+      </div>
+      <div style="background:#eaf3fb; border-radius:10px; padding:16px 18px; border-top: 4px solid #2E75B6;">
+        <div style="font-size:12px; color:#2E75B6; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">Media esperada ✦</div>
+        <div style="font-size:28px; font-weight:700; color:#1F4E79;">14.2 / día</div>
+        <div style="font-size:13px; color:#555; margin-top:6px;">Resto de Abril <strong style="color:#1F4E79;">227</strong></div>
+        <div style="font-size:13px; color:#555;">Mayo completo <strong style="color:#1F4E79;">298</strong></div>
+        <div style="font-size:11px; color:#aaa; margin-top:8px;">Promedio histórico de 11 días activos</div>
+      </div>
+      <div style="background:#fef6ec; border-radius:10px; padding:16px 18px; border-top: 4px solid #d85a30;">
+        <div style="font-size:12px; color:#d85a30; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">Optimista</div>
+        <div style="font-size:28px; font-weight:700; color:#993c1d;">21 / día</div>
+        <div style="font-size:13px; color:#888; margin-top:6px;">Resto de Abril <strong style="color:#993c1d;">336</strong></div>
+        <div style="font-size:13px; color:#888;">Mayo completo <strong style="color:#993c1d;">441</strong></div>
+        <div style="font-size:11px; color:#aaa; margin-top:8px;">Basado en el día máximo histórico</div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><span class="legend-dot" style="background:#888780;"></span>Conservadora</span>
+      <span><span class="legend-dot" style="background:#2E75B6;"></span>Media esperada</span>
+      <span><span class="legend-dot" style="background:#d85a30;"></span>Optimista</span>
+      <span><span class="legend-dot" style="background:#1d9e75;"></span>Límite disponible (344)</span>
+    </div>
+    <div class="chart-wrap" style="height: 260px;">
+      <canvas id="chartProyeccion" role="img" aria-label="Proyección acumulada de certificados emitidos">Proyección acumulada por semana hasta fin de Mayo</canvas>
+    </div>
+
+    <div class="insight-box" style="margin-top:16px;">
+      Con el <strong>ritmo medio de 14.2 certificados por día</strong> y 16 días hábiles restantes en Abril más 21 en Mayo, se proyecta emitir <strong>~525 certificados adicionales</strong> — lo que superaría el stock disponible (344) antes de fin de Mayo. En el escenario conservador, los 344 certificados disponibles se agotarían aproximadamente a mitad de Mayo.
+    </div>
+  </div>
+
+<div class="footer">Informe generado automáticamente · Datos: audit_trail.csv · 156 registros únicos aprobados</div>
+
+<script>
+const BLUE = '#2E75B6', CORAL = '#d85a30', TEAL = '#1d9e75', PURPLE = '#534ab7', GRAY = '#c0bdb5';
+
+const baseScales = {
+  x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#999', font: { size: 11, family: 'Arial' }, autoSkip: false, maxRotation: 45 } },
+  y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#999', font: { size: 11, family: 'Arial' } }, beginAtZero: true }
+};
+
+new Chart(document.getElementById('chartFecha'), {
+  type: 'bar',
+  data: {
+    labels: ['17 Mar','18 Mar','19 Mar','20 Mar','23 Mar','24 Mar','25 Mar','26 Mar','27 Mar','7 Abr','8 Abr'],
+    datasets: [{
+      data: [14,7,10,13,21,20,9,18,16,12,16],
+      backgroundColor: [BLUE,BLUE,BLUE,BLUE,BLUE,BLUE,BLUE,BLUE,BLUE,CORAL,CORAL],
+      borderRadius: 5, borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => '  ' + ctx.parsed.y + ' aprobaciones' } } },
+    scales: baseScales
+  }
+});
+
+new Chart(document.getElementById('chartGenero'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Masculino','Femenino'],
+    datasets: [{ data: [131,25], backgroundColor: [BLUE, CORAL], borderWidth: 0, hoverOffset: 8 }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, cutout: '65%',
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => '  ' + ctx.parsed + ' (' + Math.round(ctx.parsed/156*100) + '%)' } }
+    }
+  }
+});
+
+new Chart(document.getElementById('chartDow'), {
+  type: 'bar',
+  data: {
+    labels: ['Lunes','Martes','Miércoles','Jueves','Viernes'],
+    datasets: [{ data: [21,46,32,28,29], backgroundColor: [GRAY,BLUE,GRAY,GRAY,GRAY], borderRadius: 5, borderSkipped: false }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => '  ' + ctx.parsed.y + ' aprobaciones' } } },
+    scales: baseScales
+  }
+});
+
+new Chart(document.getElementById('chartHora'), {
+  type: 'line',
+  data: {
+    labels: ['8:00am','9:00am','10:00am','11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm'],
+    datasets: [{
+      data: [6,20,21,22,16,11,17,23,20],
+      borderColor: PURPLE, backgroundColor: 'rgba(83,74,183,0.08)',
+      borderWidth: 2.5, pointBackgroundColor: PURPLE, pointRadius: 5,
+      fill: true, tension: 0.4
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => '  ' + ctx.parsed.y + ' aprobaciones' } } },
+    scales: baseScales
+  }
+});
+
+new Chart(document.getElementById('chartMes'), {
+  type: 'bar',
+  data: {
+    labels: ['Marzo 2026','Abril 2026'],
+    datasets: [{ data: [128,28], backgroundColor: [BLUE, CORAL], borderRadius: 6, borderSkipped: false }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => '  ' + ctx.parsed.x + ' aprobaciones' } } },
+    scales: {
+      x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#999', font: { size: 11 } }, beginAtZero: true },
+      y: { grid: { display: false }, ticks: { color: '#555', font: { size: 13, weight: '600' } } }
+    }
+  }
+});
+
+// Proyección acumulada semanal
+// Semanas: ya emitidos + resto Abril (16 días háb) + Mayo (21 días háb)
+// Labels: semanas desde Mar 17 hasta fin de Mayo
+const promDia = 14.18;
+const minDia = 7;
+const maxDia = 21;
+const disponibles = 344;
+
+// Acumulado histórico real por semana
+const semanasHist = ['17 Mar','24 Mar','7 Abr','14 Abr','21 Abr','28 Abr','5 May','12 May','19 May','26 May'];
+// Real: sem1=14+7+10+13=44, sem2=21+20+9+18+16=84 (total 128), sem3=12+16=28 (total 156)
+const acumReal =    [44, 128, 156, null, null, null, null, null, null, null];
+// Proyección media: desde 156, +14.2*5 por semana (~71)
+const acumMed =     [null, null, 156, Math.round(156+promDia*5), Math.round(156+promDia*10), Math.round(156+promDia*13), Math.round(156+promDia*18), Math.round(156+promDia*23), Math.round(156+promDia*26), Math.round(156+promDia*29)];
+const acumMin =     [null, null, 156, Math.round(156+minDia*5),  Math.round(156+minDia*10),  Math.round(156+minDia*13),  Math.round(156+minDia*18),  Math.round(156+minDia*23),  Math.round(156+minDia*26),  Math.round(156+minDia*29)];
+const acumMax =     [null, null, 156, Math.round(156+maxDia*5),  Math.round(156+maxDia*10),  Math.round(156+maxDia*13),  Math.round(156+maxDia*18),  Math.round(156+maxDia*23),  Math.round(156+maxDia*26),  Math.round(156+maxDia*29)];
+const limiteDisp =  semanasHist.map(() => 500);
+
+new Chart(document.getElementById('chartProyeccion'), {
+  type: 'line',
+  data: {
+    labels: semanasHist,
+    datasets: [
+      { label: 'Real', data: acumReal, borderColor: '#1a1a2e', backgroundColor: 'rgba(0,0,0,0.05)', borderWidth: 2.5, pointRadius: 5, pointBackgroundColor: '#1a1a2e', fill: false, tension: 0.3, spanGaps: false },
+      { label: 'Media esperada', data: acumMed, borderColor: BLUE, backgroundColor: 'rgba(46,117,182,0.07)', borderWidth: 2, borderDash: [6,3], pointRadius: 4, pointBackgroundColor: BLUE, fill: false, tension: 0.3, spanGaps: false },
+      { label: 'Conservadora', data: acumMin, borderColor: GRAY, borderWidth: 1.5, borderDash: [4,4], pointRadius: 3, pointBackgroundColor: GRAY, fill: false, tension: 0.3, spanGaps: false },
+      { label: 'Optimista', data: acumMax, borderColor: CORAL, borderWidth: 1.5, borderDash: [4,4], pointRadius: 3, pointBackgroundColor: CORAL, fill: false, tension: 0.3, spanGaps: false },
+      { label: 'Límite disponible', data: limiteDisp, borderColor: TEAL, borderWidth: 1.5, borderDash: [2,4], pointRadius: 0, fill: false, tension: 0 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false, callbacks: { label: ctx => '  ' + ctx.dataset.label + ': ' + ctx.parsed.y } } },
+    scales: {
+      x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#999', font: { size: 11 }, autoSkip: false, maxRotation: 45 } },
+      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#999', font: { size: 11 } }, beginAtZero: true, max: 600 }
+    }
+  }
+});
+</script>
+</body>
+</html>
